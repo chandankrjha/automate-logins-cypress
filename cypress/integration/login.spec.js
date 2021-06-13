@@ -1,14 +1,14 @@
 const config = require("../../config");
 
-const { url, email, password } = config;
-console.log(config);
-describe("My First Test", () => {
-  it("Login into learnk8s", () => {
+const { url, email, password, login } = config[0];
+
+describe("Testing", () => {
+  it("Login", () => {
     cy.visit(url);
 
-    cy.get("#email").type(email);
-    cy.get("#password").type(password);
+    cy.get(email.selector).type(email.value);
+    cy.get(password.selector).type(password.value);
 
-    cy.get("#signin_btn").click();
+    cy.get(login.selector).click();
   });
 });
